@@ -1,19 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import './index.css';
+import './index.css'; // Tailwind CSS import
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
-
-// src/App.jsx
-import SportsApp from './components/SportsApp';
-
-function App() {
-  return <SportsApp />;
-}
-
-export default App;
-
-// src/components/SportsApp.jsx
-/* Paste your current SportsApp code here */
