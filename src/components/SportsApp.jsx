@@ -59,11 +59,11 @@ export default function SportsApp() {
       eventId: comp.id,
       date: new Date(event.date).toLocaleString([], { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }),
       state: comp.status.type.state,
-      startTime: new Date(event.date).getTime(),
-      rawEvent: event // Keep original event data for modal display
+      startTime: new Date(event.date).getTime()
     };
   };
 
+  // Initial fetch for all games (full data)
   useEffect(() => {
     const fetchFullGames = async () => {
       setLoading(true);
@@ -90,6 +90,7 @@ export default function SportsApp() {
     fetchFullGames();
   }, [league]);
 
+  // Live updater: only update scores and status every 15s
   useEffect(() => {
     const interval = setInterval(async () => {
       try {
@@ -177,12 +178,9 @@ export default function SportsApp() {
 
       {selectedGame && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white text-black p-6 rounded-xl w-96 overflow-y-auto max-h-[80vh]">
-            <h2 className="font-bold text-xl mb-2">{selectedGame.homeFullName} vs {selectedGame.awayFullName}</h2>
-            {selectedGame.score && <div className="whitespace-pre-line font-semibold mb-2">{selectedGame.score}</div>}
-            {selectedGame.status && <div className="text-xs text-gray-500 mb-2">{selectedGame.status}</div>}
-            {selectedGame.broadcast && <div className="text-xs text-gray-500 mb-2">Watch on: {selectedGame.broadcast}</div>}
-            <button onClick={() => setSelectedGame(null)} className="mt-4 border px-3 py-1 rounded">Close</button>
+          <div className="bg-white text-black p-6 rounded-xl w-96">
+            {/* Modal content */}
+            <button onClick={() => setSelectedGame(null)} className="mt-4 border px-3 py-1">Close</button>
           </div>
         </div>
       )}
