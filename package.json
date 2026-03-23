@@ -12,13 +12,5 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.27",
-    "init": "^0.1.2",
-    "npx": "^3.0.0",
-    "postcss": "^8.5.8",
-    "react-scripts": "^0.0.0",
-    "tailwindcss": "^4.2.2"
   }
 }
