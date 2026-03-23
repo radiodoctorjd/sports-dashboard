@@ -7,7 +7,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
 
 // src/App.jsx
-import React from 'react';
 import SportsApp from './components/SportsApp';
 
 function App() {
